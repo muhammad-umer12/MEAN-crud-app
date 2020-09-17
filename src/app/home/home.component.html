@@ -1,0 +1,24 @@
+<button class="btn btn-primary" routerLink="/student">Add new</button>
+
+<div>
+    <table class="table">
+        <tr>
+            <th>Roll no.</th>
+            <th>Name</th>
+            <th>Subjects</th>
+         
+            <th>Delete</th>
+        </tr>
+
+        <tr *ngFor="let student of data">
+            <td>{{student.ID}}</td>
+            <td>{{student.name}}</td>
+            <td>
+                {{student.subjects}},
+            </td>
+
+          
+            <td><button class="btn btn-danger" (click)="del(student)">Delete</button></td>
+        </tr>
+    </table>
+</div>
