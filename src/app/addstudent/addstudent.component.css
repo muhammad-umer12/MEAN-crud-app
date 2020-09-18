@@ -12,3 +12,12 @@
   .alig{
       margin:30px 50px;
   }
+
+  .s{
+    margin-bottom: 15px;
+    background-color: green;
+    color: white;
+    font-weight: 500;
+    width:20%;
+    padding:10px;
+  }

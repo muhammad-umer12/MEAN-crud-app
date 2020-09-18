@@ -1,0 +1,15 @@
+.s{
+    position: absolute;
+    left:40%;
+    top:-4px;
+    
+    background-color: red;
+    color: white;
+    font-weight: 500;
+    width:15%;
+    padding:10px;
+    border-radius: 10px;;
+}
+.set{
+    margin-bottom: 20px;
+}

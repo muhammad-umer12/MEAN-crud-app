@@ -3,6 +3,7 @@ import { MatChipInputEvent } from '@angular/material/chips';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import { StudentService } from '../services/student.service';
 import { BuiltinVar } from '@angular/compiler';
+import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-addstudent',
   templateUrl: './addstudent.component.html',
@@ -11,32 +12,38 @@ import { BuiltinVar } from '@angular/compiler';
 export class AddstudentComponent implements OnInit {
 
   constructor(private studentService: StudentService) { }
-
+  success
   ngOnInit(): void {
+    this.success=false
   }
 
-  addStudent(data){
+  addStudent(Student : NgForm){
     var subs='';
-    console.log(data);
+  
     console.log(this.fruits);
     this.fruits.forEach(function (value) {
       subs+=value.name+', '
   });
   console.log(subs);
     let obj = {
-      name: data.name,
-      email:data.email,
-      ID:data.ID,
-      section:data.section,
+      name: Student.value.name,
+      email:Student.value.email,
+      ID:Student.value.ID,
+      section:Student.value.section,
       subjects:subs,
-      gender:data.gender,
-      date:data.date
+      gender:Student.value.gender,
+      date:Student.value.date
     }
 
    // console.log(obj);
     this.studentService.AddData(obj)
     .subscribe((result)=>{
       console.log(result)
+      Student.reset();
+      this.success=true;
+      setTimeout(()=>{
+        this.success=false;
+      },3000)
     },
     (err)=>{
         console.log(err);

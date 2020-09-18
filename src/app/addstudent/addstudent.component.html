@@ -1,24 +1,24 @@
 
-
+<div class="s" *ngIf="success==true">Add Successfully</div>
 
 <button class="btn btn-success" routerLink='/'>Back</button>
 
-<h2>Add New student</h2>
+<h2 class="alig">Add New student</h2>
 
 
-<form   class="alig"name="addStudent" #Student="ngForm" (ngSubmit)="addStudent(Student.value)" >
+<form   class="alig"name="addStudent" #Student="ngForm" (ngSubmit)="addStudent(Student)" >
    
     <div class="form-group "  >
         <mat-form-field   class="example-full-width" appearance="fill">
             <mat-label>Name</mat-label>
-            <input ngModel name="name" #name="ngModel" matInput>
+            <input ngModel name="name" #name="ngModel" matInput required>
           </mat-form-field>
       </div>
       <div class="form-group"  >
        
         <mat-form-field   class="example-full-width" appearance="fill">
             <mat-label>Email</mat-label>
-            <input  ngModel name="email" #email="ngModel" matInput>
+            <input  ngModel name="email" #email="ngModel" matInput required>
           </mat-form-field>
       </div>
  
@@ -26,7 +26,7 @@
     <div class="form-group">
         <mat-form-field  class="example-full-width"  appearance="fill">
             <mat-label>ID</mat-label>
-            <input  ngModel name="ID" #ID="ngModel" matInput>
+            <input  ngModel name="ID" #ID="ngModel" required matInput>
           </mat-form-field>
     </div>
 
@@ -35,7 +35,7 @@
     <div class="form-group">
         <mat-form-field  class="example-full-width"  appearance="fill">
             <mat-label>Section</mat-label>
-            <mat-select ngModel name="section" #section="ngModel">
+            <mat-select  required ngModel name="section" #section="ngModel">
               <mat-option value="A">A</mat-option>
               <mat-option value="B">B</mat-option>
               <mat-option value="C">C</mat-option>
@@ -79,8 +79,9 @@
     </div>
     
    
-    
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="form-group s" *ngIf="success==true">Add Successfully</div>
+    <div class="form-group"><button  type="submit" class="btn btn-primary">Submit</button></div>
+
   </form>
 
 

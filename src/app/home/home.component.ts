@@ -10,8 +10,10 @@ export class HomeComponent implements OnInit {
   
   constructor(private service: StudentService) { }
 data;
-  ngOnInit(): void {
+success;
 
+  ngOnInit(): void {
+    this.success=false;
     this.getData();
   }
   
@@ -32,6 +34,10 @@ data;
       this.service.delete(obj._id).subscribe((data) => {
         let k = this.data.indexOf(obj);
      this.data.splice(k,1);
+     this.success=true;
+     setTimeout(()=>{
+      this.success=false;
+    },3000)
      console.log(data);
       
       })    
