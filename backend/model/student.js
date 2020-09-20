@@ -14,7 +14,7 @@ const studentSchema =  new schema({
     },
     ID:{
         type: String,
-        unique:true
+     
     },
     gender:{
         type: String,     

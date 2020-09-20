@@ -9,7 +9,7 @@ export class StudentService {
 
   }
   baseUri:string = 'http://localhost:3000/student';
-
+  
   AddData(data){
     console.log('data aagya')
     console.log(data);
@@ -28,10 +28,13 @@ export class StudentService {
   delete(id){
     
     return this.http.delete(this.baseUri+'/'+id)
-     // catchError(this.errorMgmt)
-    
 
-      
-    
+  }
+
+  update(data,id){
+
+    console.log(data._id);
+    console.log(this.baseUri+'/'+data._id);
+    return this.http.put(this.baseUri+'/'+id,data);
   }
 }

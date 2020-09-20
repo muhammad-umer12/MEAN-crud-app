@@ -11,13 +11,13 @@ studentRouter.use(bodyParser.json());
 studentRouter.route('/')
 .post((req, res, next) => {
     console.log('recieved');
-    console.log(req.body);
+  
 
     student.create(req.body)
     .then((result)=>{
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
-        console.log(result);
+
         res.json(result)
     }, (err)=> next(err))
     .catch((err)=> next(err))
@@ -50,9 +50,21 @@ studentRouter.route('/:stdId')
     .then((result)=>{
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
-        console.log(result)
+        
         res.json(result);
     })
+})
+.put((req, res, next) => {
+   
+    student.findByIdAndUpdate(req.params.stdId, {
+        $set: req.body
+    }, { new: true })
+    .then((data) => {
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json(data);
+    }, (err) => next(err))
+    .catch((err) => next(err));
 })
 .delete((req, res, next) => {
     console.log(req.params.stdId)

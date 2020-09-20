@@ -38,7 +38,7 @@ export class AddstudentComponent implements OnInit {
    // console.log(obj);
     this.studentService.AddData(obj)
     .subscribe((result)=>{
-      console.log(result)
+      
       Student.reset();
       this.success=true;
       setTimeout(()=>{

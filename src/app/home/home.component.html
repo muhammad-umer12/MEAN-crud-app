@@ -8,7 +8,7 @@
             <th>Roll no.</th>
             <th>Name</th>
             <th>Subjects</th>
-         
+            <th>Update</th>
             <th>Delete</th>
         </tr>
 
@@ -16,10 +16,10 @@
             <td>{{student.ID}}</td>
             <td>{{student.name}}</td>
             <td>
-                {{student.subjects}},
+                {{student.subjects}}
             </td>
 
-          
+            <td><button class="btn btn-danger" [routerLink]="['/student', student.ID]">Update</button></td>
             <td><button class="btn btn-danger" (click)="del(student)">Delete</button></td>
         </tr>
     </table>
